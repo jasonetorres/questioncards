@@ -63,7 +63,7 @@
             <form action="{{ route('questions.destroy', $question->id) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" onclick="return confirm('Are you sure you want to delete this question?');">Delete</button>
+                <button type="submit" onclick="return confirm('you sure about that pal?');">Delete</button>
             </form>
         </div>
     </div>
