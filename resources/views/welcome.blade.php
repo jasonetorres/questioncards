@@ -55,14 +55,24 @@
 <body>
     <div id="card-container">
         <h1>Drop Your Question</h1>
-        <form action="/questions" method="POST">
+        <form id="question-form" action="/questions" method="POST">
             @csrf
-            <textarea name="question" placeholder="Your question here..." required></textarea>
+            <textarea id="question-input" name="question" placeholder="Your question here..." required></textarea>
             <button type="submit">Submit</button>
         </form>
     </div>
     @if(session('success'))
         <p>{{ session('success') }}</p>
     @endif
+
+    <script>
+        // Add event listener to the textarea for the Enter key
+        document.getElementById('question-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent the default action (new line)
+                document.getElementById('question-form').submit(); // Submit the form
+            }
+        });
+    </script>
 </body>
 </html>
