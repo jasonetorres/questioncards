@@ -12,13 +12,9 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f4f4f9;
-            .background-image {
-            background-image: url('/questions.png');
+            background-image: url('images/questions.png');
             background-size: cover;
             background-position: center;
-            height: 100vh;
-            }
         }
         #card-container {
             width: 100%;
@@ -29,8 +25,17 @@
             border-radius: 8px;
             text-align: center;
         }
+        textarea {
+            width: 85%;
+            height: 50px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            resize: none;
+        }
         button {
-            margin: 5px;
+            margin: 0 auto;
             padding: 10px 20px;
             border: none;
             background-color: #007bff;
@@ -38,6 +43,7 @@
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s;
+            display: block;
         }
         button:hover {
             background-color: #0056b3;
@@ -48,10 +54,10 @@
     <div id="card-container">
         <h1>Drop Your Question</h1>
         <form action="/questions" method="POST">
-        @csrf
-        <textarea name="question" placeholder="Your question here..." required></textarea>
+            @csrf
+            <textarea name="question" placeholder="Your question here..." required></textarea>
+            <button type="submit">Submit</button>
         </form>
-        <button type="submit">Submit</button>
     </div>
     @if(session('success'))
         <p>{{ session('success') }}</p>

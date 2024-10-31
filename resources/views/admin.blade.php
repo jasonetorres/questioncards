@@ -12,33 +12,37 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f4f4f9;
+            background-image: url('images/questions.png');
+            background-size: cover;
+            background-position: center;
         }
         #card-container {
             width: 100%;
-            max-width: 600px;
+            max-width: 400px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            border-radius: 8px;
+            box-shadow: 0 4px 8px #fff(232, 223, 223, 0.1);
+            background-color: #ffffff;
+            border-radius: 10px;
             text-align: center;
+            border: 3px solid #CC403F
         }
         .question-card {
-            border: 1px solid #ccc;
+            border: 3px solid #0395B6;
             padding: 10px;
             margin: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
         }
         button {
             margin: 5px;
             padding: 10px 20px;
             border: none;
-            background-color: #007bff;
+            background-color: #6F1FD8;
             color: #fff;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
         }
         button:hover {
             background-color: #0056b3;
@@ -46,17 +50,17 @@
     </style>
 </head>
 <body>
-    <div id="question-container">
+    <div id="card-container">
         <h1>Questions</h1>
         @foreach($questions as $question)
             <div class="question-card">
                 <p>{{ $question->question }}</p>
             </div>
         @endforeach
-    </div>
-    <div>
-        <button onclick="prevQuestion()">Previous</button>
-        <button onclick="nextQuestion()">Next</button>
+        <div>
+            <button onclick="prevQuestion()">Previous</button>
+            <button onclick="nextQuestion()">Next</button>
+        </div>
     </div>
 
     <script>
