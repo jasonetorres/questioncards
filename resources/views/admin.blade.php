@@ -20,11 +20,11 @@
             width: 100%;
             max-width: 400px;
             padding: 20px;
-            box-shadow: 0 4px 8px #fff(232, 223, 223, 0.1);
+            box-shadow: 0 4px 8px rgba(232, 223, 223, 0.1);
             background-color: #ffffff;
             border-radius: 10px;
             text-align: center;
-            border: 3px solid #CC403F
+            border: 3px solid #CC403F;
         }
         .question-card {
             border: 3px solid #0395B6;
@@ -60,6 +60,11 @@
         <div>
             <button onclick="prevQuestion()">Previous</button>
             <button onclick="nextQuestion()">Next</button>
+            <form action="{{ route('questions.destroy', $question->id) }}" method="POST" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this question?');">Delete</button>
+            </form>
         </div>
     </div>
 

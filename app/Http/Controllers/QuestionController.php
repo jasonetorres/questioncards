@@ -30,4 +30,12 @@ class QuestionController extends Controller
         $questions = Question::all();
         return view('admin', compact('questions'));
     }
+
+    public function destroy($id)
+    {
+        $question = Question::findOrFail($id);
+        $question->delete();
+
+        return redirect()->back()->with('success', 'Question deleted successfully!');
+    }
 }
